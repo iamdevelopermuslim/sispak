@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar Diagnosa Penyakit Tanaman Padi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistem Pakar</h1>
+        <h2><q>Diagnosa Penyakit Pada Tanaman Padi</q></h2>
+        <form id="diagnosisForm">
+            <label for="symptoms">Pilih Gejala:</label>
+        <select id="symptoms" multiple>
+            <option value="kuning">Daun menguning</option>
+            <option value="bintik">Muncul bintik-bintik pada daun</option>
+            <option value="layu">Tanaman tampak layu</option>
+            <option value="kerut">Daun mengkerut</option>
+            <option value="busuk">Buah atau batang berbau busuk</option>
+            <option value="bercak_putih">Muncul bercak putih pada daun</option>
+            <option value="daun_kering">Daun mengering</option>
+            <option value="ulat">Adanya ulat pada tanaman</option>
+            <option value="bungan_jatuh">Bunga jatuh sebelum berbuah</option>
+            <option value="tanaman_pucat">Tanaman tampak pucat</option>
+            <option value="daun_menjalar">Daun mengalami perjalanan (menjalar)</option>
+        </select>
+            <button type="button" onclick="diagnose()">Diagnosa</button>
+        </form>
+        <div id="result"></div>
+        <div id="treatment"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

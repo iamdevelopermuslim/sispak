@@ -1,0 +1,87 @@
+body {
+    font-family: 'Poppins', 'roboto';
+    background: linear-gradient(to bottom, #FF8100, #9e00ff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+select {
+    width: 100%;
+    padding: 1%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    background-color: #FF8100;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 2.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#result {
+    font-weight: bold;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+#treatment {
+    font-weight: normal;
+    color: #555;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Media Queries */
+
+/* Tampilan Desktop */
+@media (min-width: 768px) {
+    .container {
+        width: 70%;
+    }
+}
+
+/* Tampilan Tablet */
+@media (max-width: 767px) {
+    .container {
+        width: 50%;
+    }
+}
+
+/* Tampilan Mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+    }
+    select {
+        width: 100%;
+        padding: 1%;
+        font-family: 'Roboto', sans-serif;
+    }
+}
