@@ -3,11 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pakar Diagnosa Penyakit Tanaman Padi</title>
+    <title>Sistem Pakar Diagnosa Penyakit Tanaman</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+    font-family: 'Poppins', 'roboto';
+    background: linear-gradient(to bottom, #FF8100, #9e00ff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+select {
+    width: 100%;
+    padding: 1%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    background-color: #FF8100;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 2.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#result {
+    font-weight: bold;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+#treatment {
+    font-weight: normal;
+    color: #555;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Media Queries */
+
+/* Tampilan Desktop */
+@media (min-width: 768px) {
+    .container {
+        width: 70%;
+    }
+}
+
+/* Tampilan Tablet */
+@media (max-width: 767px) {
+    .container {
+        width: 50%;
+    }
+}
+
+/* Tampilan Mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+    }
+    select {
+        width: 100%;
+        padding: 1%;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+</style>
 </head>
 <body>
     <div class="container">
+        <p>Nama : Rian M Farhan</p>
+        <p>Nim : 20836014</p>
+        <p>kelas : PTI 4A</p>
         <h1>Sistem Pakar</h1>
         <h2><q>Diagnosa Penyakit Pada Tanaman Sayur</q></h2>
         <form id="diagnosisForm">
@@ -31,6 +127,68 @@
         <div id="treatment"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function diagnose() {
+    // Ambil gejala yang dipilih
+    var selectedSymptoms = [];
+    var selectBox = document.getElementById('symptoms');
+    for (var i = 0; i < selectBox.options.length; i++) {
+        if (selectBox.options[i].selected) {
+            selectedSymptoms.push(selectBox.options[i].value);
+        }
+    }
+
+    // Lakukan diagnosa berdasarkan gejala
+    var result = "Hasil Diagnosa: ";
+    var treatment = "Solusi Pengobatan: ";
+    if (selectedSymptoms.length === 0) {
+        result += "Pilih setidaknya satu gejala.";
+        
+    } else {
+        if (selectedSymptoms.includes("kuning")) {
+            result += "Tanaman mengalami defisiensi nutrisi.";
+            treatment += "Berikan pupuk yang mengandung nutrisi yang dibutuhkan.";
+        } else if (selectedSymptoms.includes("bintik")) {
+            result += "Tanaman  terinfeksi penyakit daun bercak.";
+            treatment += "Gunakan fungisida yang direkomendasikan oleh ahli pertanian.";
+        } else if (selectedSymptoms.includes("layu")) {
+            result += "Tanaman  terkena penyakit layu.";
+            treatment += "Isolasi tanaman yang terinfeksi dan berikan perlakuan fungisida.";
+        } else if (selectedSymptoms.includes("kerut")) {
+            result += "Tanaman  mengalami daun mengkerut.";
+            treatment += "Periksa penyiraman tanaman dan pastikan kelembaban cukup.";
+        } else if (selectedSymptoms.includes("busuk")) {
+            result += "Buah atau batang  mengalami pembusukan.";
+            treatment += "Hapus bagian yang terinfeksi dan hindari kelebihan air.";
+        } else if (selectedSymptoms.includes("bercak_putih")) {
+            result += "Muncul bercak putih pada daun, terinfeksi penyakit jamur.";
+            treatment += "Pemakaian fungisida dapat membantu dalam mengatasi masalah ini.";
+        } else if (selectedSymptoms.includes("daun_kering")) {
+            result += "Daun tanaman mengering, bisa jadi akibat kekeringan.";
+            treatment += "Perhatikan pola penyiraman dan pastikan tanaman mendapatkan cukup air.";
+        } else if (selectedSymptoms.includes("ulat")) {
+            result += "Tanaman  terkena serangan ulat.";
+            treatment += "Gunakan insektisida yang sesuai untuk mengendalikan ulat.";
+        } else if (selectedSymptoms.includes("bungan_jatuh")) {
+            result += "Bunga jatuh sebelum berbuah, bisa disebabkan oleh faktor lingkungan.";
+            treatment += "Periksa kondisi tanah dan pertimbangkan untuk memberikan pupuk tambahan.";
+        } else if (selectedSymptoms.includes("tanaman_pucat")) {
+            result += "Tanaman tampak pucat, mungkin karena kekurangan zat besi.";
+            treatment += "Berikan pupuk yang mengandung zat besi atau segera periksakan tanah.";
+        } else if (selectedSymptoms.includes("daun_menjalar")) {
+            result += "Daun tanaman mengalami perjalanan (menjalar), ada serangan jamur.";
+            treatment += "Hindari kelembaban yang tinggi dan gunakan fungisida sesuai petunjuk.";
+        } else {
+            result += "Tidak dapat menentukan penyebab masalah.";
+            treatment += "Konsultasikan dengan ahli pertanian untuk mendapatkan bantuan lebih lanjut.";
+        }
+    }
+
+    // Tampilkan hasil diagnosa dan solusi pengobatan
+    document.getElementById('result').innerText = result;
+    document.getElementById('treatment').innerText = treatment;
+}
+
+    </script>
 </body>
 </html>
